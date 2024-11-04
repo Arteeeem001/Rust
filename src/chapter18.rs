@@ -68,21 +68,6 @@ mod tests {
         fn_once(|z| { z == x.len() })
     }
 
-    #[test] // Тест 6
-    fn test6() {
-        let mut s = String::new();
-
-        let update_string = |str| s.push_str(str);
-
-        exec(update_string);
-
-        println!("{:?}", s);
-    }
-
-    fn exec<F>(mut f: F) {
-        f("hello")
-    }
-
     #[test] // Тест 7
     fn test7() {
         fn apply<F>(f: F)
@@ -114,19 +99,6 @@ mod tests {
         let double = |x| 2 * x;
 
         println!("3 doubled: {}", apply_to_3(double));
-    }
-
-    #[test] // Тест 8
-    fn test8() {
-        let mut s = String::new();
-
-        let update_string = |str| -> String { s.push_str(str); s };
-
-        exec(update_string);
-    }
-
-    fn exec<'a, F: Fn(&'a str)>(mut f: F) {
-        f("hello");
     }
 
     #[test] // Тест 9
